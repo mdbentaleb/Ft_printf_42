@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 
 
-int	check_format (char c, va_list arg)
+static int	check_format (char c, va_list arg)
 {
 	int	count;
 

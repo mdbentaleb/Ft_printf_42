@@ -12,5 +12,5 @@
 
 int main()
 {
-	printf("%ld\n", LONG_MIN);
+	printf("");
 }

@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moben-ta <moben-ta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/02 13:20:49 by moben-ta          #+#    #+#             */
+/*   Updated: 2024/12/03 13:46:32 by moben-ta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-
-static int	check_format (char c, va_list arg)
+int	check_format(char c, va_list arg)
 {
 	int	count;
 
@@ -9,7 +20,7 @@ static int	check_format (char c, va_list arg)
 	if (c == 'd' || c == 'i')
 		count = ft_putnbr(va_arg(arg, int));
 	else if (c == 'c')
-		count = ft_putchar(va_arg(arg, char));
+		count = ft_putchar(va_arg(arg, int));
 	else if (c == 's')
 		count = ft_putstr(va_arg(arg, char *));
 	else if (c == 'u')
@@ -17,7 +28,7 @@ static int	check_format (char c, va_list arg)
 	else if (c == 'x' || c == 'X')
 		count = ft_puthex(va_arg(arg, unsigned long), c);
 	else if (c == 'p')
-		count = ft_putaddr(va_arg(arg, unsigned long));
+		count = ft_putptr(va_arg(arg, unsigned long));
 	else if (c == '%')
 		count = ft_putchar(c);
 	return (count);
@@ -26,16 +37,21 @@ static int	check_format (char c, va_list arg)
 int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 
 	va_start(arg, format);
 	count = 0;
 	i = 0;
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		if (format[i] == '%')
-			count += check_format(format[i + 1], arg);
+		{
+			i++;
+			if (format[i] == '\0')
+				return (count);
+			count += check_format(format[i], arg);
+		}
 		else
 		{
 			ft_putchar(format[i]);

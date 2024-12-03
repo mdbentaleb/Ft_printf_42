@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moben-ta <moben-ta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/02 13:20:59 by moben-ta          #+#    #+#             */
+/*   Updated: 2024/12/03 12:34:15 by moben-ta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_putnbr(int nbr)
 {
-	long	nbr;
 	int		count;
+	long	nb;
 
-	nbr = n;
+	nb = nbr;
 	count = 0;
-	if (nbr < 0)
+	if (nb < 0)
 	{
 		count += ft_putchar('-');
-		nbr *= -1;
+		nb *= -1;
 	}
-	if (nbr >= 10)
-		count += ft_putnbr(nbr / 10);
-	count += ft_putchar((nbr % 10) + '0');
+	if (nb >= 10)
+		count += ft_putnbr(nb / 10);
+	count += ft_putchar((nb % 10) + '0');
 	return (count);
 }

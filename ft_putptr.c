@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moben-ta <moben-ta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 13:21:02 by moben-ta          #+#    #+#             */
-/*   Updated: 2024/12/02 13:21:03 by moben-ta         ###   ########.fr       */
+/*   Created: 2024/12/03 10:07:56 by moben-ta          #+#    #+#             */
+/*   Updated: 2024/12/03 12:41:08 by moben-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+int	ft_putptr(unsigned long nb)
 {
-	size_t	i;
+	int	count;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	ft_putstr(char *s)
-{
-	int	len;
-
-	if (!s)
-		return (ft_putstr("(null)"));
-	len = ft_strlen(s);
-	write (1, s, len);
-	return (len);
+	count = 2;
+	write(1, "0x", 2);
+	count += ft_puthex(nb, 'x');
+	return (count);
 }

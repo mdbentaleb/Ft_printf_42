@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moben-ta <moben-ta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 13:21:02 by moben-ta          #+#    #+#             */
-/*   Updated: 2024/12/02 13:21:03 by moben-ta         ###   ########.fr       */
+/*   Created: 2024/12/02 13:20:56 by moben-ta          #+#    #+#             */
+/*   Updated: 2024/12/03 12:33:40 by moben-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+char	checkchar(int nb, char c)
 {
-	size_t	i;
+	char	*base;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	base = NULL;
+	if (c == 'x')
+		base = "0123456789abcdef";
+	else if (c == 'X')
+		base = "0123456789ABCDEF";
+	return (base[nb]);
 }
 
-int	ft_putstr(char *s)
+int	ft_puthex(unsigned long n, char c)
 {
-	int	len;
+	int		count;
+	char	a;
 
-	if (!s)
-		return (ft_putstr("(null)"));
-	len = ft_strlen(s);
-	write (1, s, len);
-	return (len);
+	count = 0;
+	if (n >= 16)
+		count += ft_puthex(n / 16, c);
+	a = checkchar(n % 16, c);
+	count += ft_putchar(a);
+	return (count);
 }

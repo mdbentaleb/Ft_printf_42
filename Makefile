@@ -6,7 +6,7 @@
 #    By: moben-ta <moben-ta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 13:26:26 by moben-ta          #+#    #+#              #
-#    Updated: 2024/12/03 13:07:41 by moben-ta         ###   ########.fr        #
+#    Updated: 2024/12/05 16:07:17 by moben-ta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,4 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean

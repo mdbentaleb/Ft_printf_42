@@ -12,46 +12,23 @@
 
 #include "ft_printf.h"
 
-char	checkchar(int nb, char c)
-{
-	char	*base;
-
-	base = NULL;
-	if (c == 'x')
-		base = "0123456789abcdef";
-	else if (c == 'X')
-		base = "0123456789ABCDEF";
-	return (base[nb]);
-}
-
 int	ft_puthex(unsigned int n, char c)
 {
 	int		count;
-	char	a;
+	char	*base;
 
 	count = 0;
 	if (n >= 16)
 		count += ft_puthex(n / 16, c);
-	a = checkchar(n % 16, c);
-	count += ft_putchar(a);
+	if (c == 'x')
+	{
+		base = "0123456789abcdef";
+		count += ft_putchar(base[n % 16]);
+	}
+	else if (c == 'X')
+	{
+		base = "0123456789ABCDEF";
+		count += ft_putchar(base[n % 16]);
+	}
 	return (count);
 }
-
-// int	ft_puthexa(unsigned int n, char format)
-// {
-// 	int		count;
-// 	char	*s;
-
-// 	s = "0123456789abcdef";
-// 	count = 0;
-// 	if (format == 'X')
-// 		s = "0123456789ABCDEF";
-// 	if (n < 16)
-// 		count += ft_putchar(s[n]);
-// 	else
-// 	{
-// 		count += ft_puthexa(n / 16, format);
-// 		count += ft_putchar(s[n % 16]);
-// 	}
-// 	return (count);
-// }

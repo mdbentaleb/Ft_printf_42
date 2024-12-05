@@ -12,12 +12,25 @@
 
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned int nb)
+int	puthexa(unsigned long n)
+{
+	int		count;
+	char	*base;
+
+	base = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
+		count += puthexa(n / 16);
+	count += ft_putchar(base[n % 16]);
+	return (count);
+}
+
+int	ft_putp(unsigned long nb)
 {
 	int	count;
 
-	count = 2;
-	write(1, "0x", 2);
-	count += ft_puthex(nb, 'x');
+	count = 0;
+	count += ft_putstr("0x");
+	count += puthexa(nb);
 	return (count);
 }

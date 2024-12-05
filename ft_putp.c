@@ -25,12 +25,14 @@ int	puthexa(unsigned long n)
 	return (count);
 }
 
-int	ft_putp(unsigned long nb)
+int	ft_putp(void *ptr)
 {
-	int	count;
+	int				count;
+	unsigned long	n;
 
+	n = (unsigned long)ptr;
 	count = 0;
 	count += ft_putstr("0x");
-	count += puthexa(nb);
+	count += puthexa(n);
 	return (count);
 }

@@ -28,7 +28,7 @@ int	check_format(char c, va_list arg)
 	else if (c == 'x' || c == 'X')
 		count = ft_puthex(va_arg(arg, unsigned int), c);
 	else if (c == 'p')
-		count = ft_putptr(va_arg(arg, unsigned int));
+		count = ft_putp(va_arg(arg, unsigned long));
 	else if (c == '%')
 		count = ft_putchar(c);
 	else

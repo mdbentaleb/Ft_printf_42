@@ -1,12 +1,11 @@
-# Libft - 42 Network Project
+# Ft_printf - 42 Network Project
 
-Libft is a custom C library designed to implement essential functions that are typically provided by the standard C library. It includes various functions for string manipulation, memory handling, and other utilities. The project is a key part of the 42 Network curriculum and helps to reinforce understanding of low-level C programming and memory management.
+Ft_printf is a custom implementation of the `printf` function in C. It supports a variety of format specifiers, allowing for formatted output of strings, integers, characters, and other data types. This project reinforces understanding of variadic functions, format specifiers, and memory handling.
 
 🚀 **Features**  
-- Implements basic string manipulation functions such as `ft_strlen`, `ft_strcpy`, `ft_strcmp`, and more.  
-- Includes memory manipulation functions like `ft_memset`, `ft_memcpy`, and `ft_bzero`.  
-- Provides functions for handling lists, such as linked list creation and manipulation (`t_list` structure).  
-- Offers utility functions for handling file descriptors and dynamic memory allocation.
+- Implements custom `printf` functionality with support for various format specifiers (`%d`, `%s`, `%c`, `%x`, etc.).  
+- Handles variadic arguments, making it possible to print multiple data types in a single call.  
+- Supports custom formatting options like padding, alignment, and precision.  
 
 🛠️ **Getting Started**
 
@@ -18,12 +17,12 @@ To get started, ensure you have the following installed:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/mdbentaleb/Libft.git
-cd Libft
+git clone https://github.com/mdbentaleb/Ft_printf_42.git
+cd Ft_printf_42
 ```
 
-### 2. Compile the Library
-After cloning the repository, run the following command to compile the library:
+### 2. Compile the Project
+After cloning the repository, run the following command to compile the project:
 ```bash
 make
 ```
